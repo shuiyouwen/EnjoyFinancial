@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import com.example.shui.enjoyfinancial.R;
 import com.example.shui.enjoyfinancial.base.BaseFragment;
-import com.example.shui.enjoyfinancial.utils.StatusBarUtil;
 
 /**
  * 首页
