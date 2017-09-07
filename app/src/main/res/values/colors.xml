@@ -20,4 +20,12 @@
     <color name="font_gray_6b">#6b6b6b</color>
     <color name="font_red_fe">#fe3636</color>
     <color name="font_gray_d2">#d2d2d2</color>
+    <color name="gray_77">#777777</color>
+    <color name="black_43">#434343</color>
+    <color name="font_red_eb">#eb6877</color>
+    <color name="font_blue_79">#798fed</color>
+    <color name="gray_fa">#FAFAFA</color>
+    <color name="gray_d7">#D7D7D7</color>
+
+    <drawable name="drawable_white">@android:color/white</drawable>
 </resources>

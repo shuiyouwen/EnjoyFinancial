@@ -6,11 +6,16 @@ import android.os.Bundle;
 import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.example.shui.enjoyfinancial.R;
+import com.example.shui.enjoyfinancial.utils.StatusBarUtil;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.trello.rxlifecycle2.LifecycleTransformer;
@@ -18,6 +23,7 @@ import com.trello.rxlifecycle2.RxLifecycle;
 import com.trello.rxlifecycle2.android.FragmentEvent;
 import com.trello.rxlifecycle2.android.RxLifecycleAndroid;
 
+import butterknife.BindView;
 import io.reactivex.Observable;
 import io.reactivex.subjects.BehaviorSubject;
 
@@ -28,15 +34,22 @@ import io.reactivex.subjects.BehaviorSubject;
  */
 
 public class BaseFragment extends Fragment implements LifecycleProvider<FragmentEvent>, IBaseView {
-//    @Nullable
+    //    @Nullable
 //    @BindView(R.id.swipe_refresh_layout)
 //    protected SwipeRefreshLayout mSwipeRefreshLayout;
+    @Nullable
+    @BindView(R.id.fl_title_container)
+    FrameLayout mFlTitleContainer;
+    @Nullable
+    @BindView(R.id.tv_title)
+    protected TextView mTvTitle;
 
     private KProgressHUD mKProgressHUD;
     private final BehaviorSubject<FragmentEvent> lifecycleSubject = BehaviorSubject.create();
     private static final String STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN";
     protected Activity mActivity;
 //    private MessageDialog mDialog;
+
 
     @Override
     public void onAttach(Activity activity) {
@@ -67,6 +80,11 @@ public class BaseFragment extends Fragment implements LifecycleProvider<Fragment
         super.onViewCreated(view, savedInstanceState);
         lifecycleSubject.onNext(FragmentEvent.CREATE_VIEW);
         initUi();
+    }
+
+    protected @StringRes
+    int getPageTitle() {
+        return 0;
     }
 
     @Override
@@ -139,9 +157,20 @@ public class BaseFragment extends Fragment implements LifecycleProvider<Fragment
      * 初始化通用ui
      */
     protected void initUi() {
+        initStateBar();
+        int pageTitleRes = getPageTitle();
+        if (mTvTitle != null && pageTitleRes != 0) {
+            mTvTitle.setText(pageTitleRes);
+        }
 //        if (mSwipeRefreshLayout != null) {
 //            mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(mActivity, R.color.orange_f5));
 //        }
+    }
+
+    private void initStateBar() {
+        if (mFlTitleContainer != null) {
+            StatusBarUtil.stateBarSetting(mActivity, mFlTitleContainer, false);
+        }
     }
 
     @Override

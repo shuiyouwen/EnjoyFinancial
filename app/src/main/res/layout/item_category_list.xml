@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:paddingBottom="21dp">
+
+
+    <FrameLayout
+        android:id="@+id/fl_product"
+        android:layout_width="111dp"
+        android:layout_height="111dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_black_rectangle_5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/test_product" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_product"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="15dp"
+        android:includeFontPadding="false"
+        android:text="iPhone 7 Plus国行正品  4G手机4G手机4G手机"
+        android:textColor="@color/font_black_33"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toRightOf="@+id/fl_product"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fl_product" />
+
+    <TextView
+        android:id="@+id/tv_original_price"
+        android:layout_width="wrap_content"
+        android:layout_height="14dp"
+        android:layout_marginTop="21dp"
+        android:includeFontPadding="false"
+        android:text="￥5999"
+        android:textColor="@color/font_gray_9a"
+        android:textSize="13sp"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_product"
+        app:layout_constraintTop_toBottomOf="@+id/tv_product" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:includeFontPadding="false"
+        android:text="￥5899"
+        android:textColor="@color/font_red_fe"
+        android:textSize="17sp"
+        app:layout_constraintLeft_toRightOf="@+id/tv_original_price"
+        app:layout_constraintTop_toBottomOf="@+id/tv_product"
+        app:layout_goneMarginLeft="0dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:background="@drawable/shape_red_rectangle"
+        android:includeFontPadding="false"
+        android:text="@string/preferential_price"
+        android:textColor="@android:color/white"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_price"
+        app:layout_constraintLeft_toRightOf="@+id/tv_price"
+        app:layout_constraintTop_toTopOf="@+id/tv_price" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/shape_gray_reactangle_5"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toRightOf="@+id/fl_product"
+        app:layout_constraintTop_toBottomOf="@+id/tv_price">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_orange_rectangle_5"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@string/cxf"
+            android:textColor="@android:color/white"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_month_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="￥114/月 起"
+            android:textSize="14sp" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
