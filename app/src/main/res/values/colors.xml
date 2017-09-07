@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="bg_gray_ee">@color/gray_ee</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="font_gray_cf">#cfcece</color>
-    <color name="gray_b5">#b5b5b5</color>
     <color name="font_orange_cf">@color/orange_cf</color>
-
-    <color name="orange_cf">#cfa972</color>
-    <color name="font_gray_ce">#cecece</color>
-    <color name="orange_e2">#e2be8b</color>
     <color name="font_gray_99">#999999</color>
-    <color name="gray_ee">#eeeeee</color>
-    <color name="gray_bf">#bfbfbf</color>
+    <color name="font_gray_cf">#cfcece</color>
     <color name="font_black_33">#333333</color>
-    <color name="gray_dc">#dcdcdc</color>
+    <color name="font_gray_ce">#cecece</color>
     <color name="font_gray_9a">#9a9a9a</color>
     <color name="font_gray_6b">#6b6b6b</color>
     <color name="font_red_fe">#fe3636</color>
     <color name="font_gray_d2">#d2d2d2</color>
-    <color name="gray_77">#777777</color>
-    <color name="black_43">#434343</color>
     <color name="font_red_eb">#eb6877</color>
     <color name="font_blue_79">#798fed</color>
+    <color name="font_black_28">#282828</color>
+
+    <color name="bg_gray_ee">@color/gray_ee</color>
+
+    <color name="gray_b5">#b5b5b5</color>
+    <color name="orange_cf">#cfa972</color>
+    <color name="orange_e2">#e2be8b</color>
+    <color name="gray_ee">#eeeeee</color>
+    <color name="gray_bf">#bfbfbf</color>
+    <color name="gray_dc">#dcdcdc</color>
+    <color name="gray_77">#777777</color>
+    <color name="black_43">#434343</color>
     <color name="gray_fa">#FAFAFA</color>
     <color name="gray_d7">#D7D7D7</color>
-    <color name="font_black_28">#282828</color>
 
     <drawable name="drawable_white">@android:color/white</drawable>
 </resources>

@@ -5,12 +5,13 @@
     android:layout_height="match_parent">
 
     <ScrollView
+        android:fillViewport="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/bg_gray_ee"
             android:orientation="vertical">
 
@@ -29,7 +30,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.example.shui.enjoyfinancial.widget.magicindicator.MagicIndicator
-                    android:id="@+id/magic_indicator_banner"
+                    android:id="@+id/magic_indicator_product"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_gravity="bottom"
@@ -158,24 +159,124 @@
                     android:src="@mipmap/ellipsis" />
             </FrameLayout>
 
-            <com.example.shui.enjoyfinancial.widget.magicindicator.MagicIndicator
-                android:id="@+id/magic_indicator"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="9dp" />
+                android:layout_marginTop="9dp"
+                android:background="@android:color/white"
+                android:orientation="horizontal">
+
+
+                <FrameLayout
+                    android:id="@+id/fl_product"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_product"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="商品"
+                        android:textColor="@color/font_orange_cf"
+                        android:textSize="17sp" />
+
+                    <View
+                        android:id="@+id/v_line_product"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_gravity="bottom"
+                        android:background="@color/orange_cf" />
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="14dp"
+                    android:layout_marginTop="11dp"
+                    android:background="@color/gray_dc" />
+
+                <FrameLayout
+                    android:id="@+id/fl_detail"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="详情"
+                        android:textColor="@color/font_black_33"
+                        android:textSize="17sp" />
+
+                    <View
+                        android:id="@+id/v_line_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_gravity="bottom"
+                        android:background="@color/orange_cf"
+                        android:visibility="gone" />
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="14dp"
+                    android:layout_marginTop="11dp"
+                    android:background="@color/gray_dc" />
+
+                <FrameLayout
+                    android:id="@+id/fl_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/tv_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="说明"
+                        android:textColor="@color/font_black_33"
+                        android:textSize="17sp" />
+
+                    <View
+                        android:id="@+id/v_line_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_gravity="bottom"
+                        android:background="@color/orange_cf"
+                        android:visibility="gone" />
+
+                </FrameLayout>
+            </LinearLayout>
         </LinearLayout>
 
     </ScrollView>
 
-    <ImageView
-        android:id="@+id/iv_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:src="@mipmap/back" />
+    <FrameLayout
+        android:id="@+id/fl_title_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/back" />
+
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
