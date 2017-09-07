@@ -26,6 +26,7 @@
     <color name="font_blue_79">#798fed</color>
     <color name="gray_fa">#FAFAFA</color>
     <color name="gray_d7">#D7D7D7</color>
+    <color name="font_black_28">#282828</color>
 
     <drawable name="drawable_white">@android:color/white</drawable>
 </resources>

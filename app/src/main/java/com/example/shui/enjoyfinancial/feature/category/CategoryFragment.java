@@ -68,7 +68,7 @@ public class CategoryFragment extends BaseFragment {
 
     private void initView() {
         List<Object> objects = Arrays.asList(new Object(), new Object(), new Object(), new Object(), new Object(), new Object());
-        CategoryListAdapter adapter = new CategoryListAdapter(objects);
+        CategoryListAdapter adapter = new CategoryListAdapter(objects, mActivity);
         mRvProduct.setAdapter(adapter);
         mRvProduct.setLayoutManager(new LinearLayoutManager(mActivity));
         RecyclerView.ItemDecoration itemDecoration = new RVItemDecoration(Color.TRANSPARENT, 10);
