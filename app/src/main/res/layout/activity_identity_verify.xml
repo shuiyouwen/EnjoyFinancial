@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <include layout="@layout/layout_title_bar_back" />
+
+    <TextView
+        android:id="@+id/tv_identity_verify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="47dp"
+        android:text="身份验证"
+        android:textColor="@color/font_black_33"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fl_titlebar_container" />
+
+    <ImageView
+        android:id="@+id/iv_identity_icn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="65dp"
+        android:src="@mipmap/person_data"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_identity_verify" />
+
+    <EditText
+        android:id="@+id/et_identity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="37dp"
+        android:background="@null"
+        android:hint="请输入身份证号"
+        android:textColor="@color/font_black_33"
+        android:textColorHint="@color/font_gray_66"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_identity_icn"
+        app:layout_constraintLeft_toRightOf="@+id/iv_identity_icn"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/iv_identity_icn" />
+
+    <View
+        android:id="@+id/v_line1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="14dp"
+        android:background="@color/gray_b5"
+        app:layout_constraintTop_toBottomOf="@+id/iv_identity_icn" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="112dp"
+        android:background="@drawable/selector_btn_next"
+        android:text="下一步"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v_line1" />
+
+</android.support.constraint.ConstraintLayout>

@@ -5,9 +5,9 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:fillViewport="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -188,6 +188,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
                         android:layout_gravity="bottom"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
                         android:background="@color/orange_cf" />
 
                 </FrameLayout>
@@ -220,6 +222,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
                         android:layout_gravity="bottom"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
                         android:background="@color/orange_cf"
                         android:visibility="gone" />
 
@@ -253,11 +257,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
                         android:layout_gravity="bottom"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
                         android:background="@color/orange_cf"
                         android:visibility="gone" />
 
                 </FrameLayout>
             </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="这里是一些描述内容" />
         </LinearLayout>
 
     </ScrollView>
@@ -326,4 +337,5 @@
             android:textSize="18sp" />
 
     </LinearLayout>
+
 </FrameLayout>

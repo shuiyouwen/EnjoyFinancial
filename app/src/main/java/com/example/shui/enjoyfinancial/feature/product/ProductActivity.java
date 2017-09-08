@@ -6,9 +6,11 @@ import android.support.v4.content.ContextCompat;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.shui.enjoyfinancial.R;
 import com.example.shui.enjoyfinancial.base.BaseActivity;
+import com.example.shui.enjoyfinancial.widget.dialog.ProductDetailDialog;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -78,5 +80,20 @@ public class ProductActivity extends BaseActivity {
         mTvDesc.setTextColor(ContextCompat.getColor(this, R.color.font_black_33));
         mTvDetail.setTextColor(ContextCompat.getColor(this, R.color.font_black_33));
         mTextSparse.get(resId).setTextColor(ContextCompat.getColor(this, R.color.orange_cf));
+    }
+
+    @OnClick({R.id.fl_help_center, R.id.tv_buy, R.id.fl_select})
+    public void onBottomViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.fl_help_center:
+                Toast.makeText(this, "帮助详情", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.tv_buy:
+                new ProductDetailDialog(this).show();
+                break;
+            case R.id.fl_select:
+                new ProductDetailDialog(this).show();
+                break;
+        }
     }
 }

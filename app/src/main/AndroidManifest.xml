@@ -14,18 +14,26 @@
 
         </activity>
         <activity android:name=".feature.mian.MainActivity">
-
-
-        </activity>
-        <activity android:name=".feature.splash.SplashActivity" />
-        <activity android:name=".feature.product.ProductActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
+
         </activity>
+        <activity android:name=".feature.splash.SplashActivity" />
+        <activity android:name=".feature.product.ProductActivity">
+
+        </activity>
+        <activity android:name=".feature.mine.SettingActivity" />
+        <activity android:name=".feature.mine.PersonDataActivity" />
+        <activity android:name=".feature.mine.SafeCenterActivity" />
+        <activity android:name=".feature.mine.AboutMeActivity" />
+        <activity android:name=".feature.mine.LocationManagerActivity" />
+        <activity android:name=".feature.mine.PhoneVerifyActivity" />
+        <activity android:name=".feature.mine.IdentityVerifyActivity" />
+        <activity android:name=".feature.mine.PayPwdActivity" />
     </application>
 
 </manifest>

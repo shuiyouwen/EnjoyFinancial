@@ -15,6 +15,8 @@
     <color name="font_red_eb">#eb6877</color>
     <color name="font_blue_79">#798fed</color>
     <color name="font_black_28">#282828</color>
+    <color name="font_gray_66">#666666</color>
+    <color name="font_gray_87">#878787</color>
 
     <color name="bg_gray_ee">@color/gray_ee</color>
 
@@ -28,6 +30,7 @@
     <color name="black_43">#434343</color>
     <color name="gray_fa">#FAFAFA</color>
     <color name="gray_d7">#D7D7D7</color>
+    <color name="gray_e5">#e5e5e5</color>
 
     <drawable name="drawable_white">@android:color/white</drawable>
 </resources>

@@ -16,4 +16,11 @@
     <string name="look_more"><![CDATA[查看更多>>]]></string>
     <string name="preferential_price">优惠价</string>
     <string name="cxf">畅享分</string>
+    <string name="confirm">确定</string>
+    <string name="setting_center">设置中心</string>
+    <string name="person_data">个人资料</string>
+    <string name="safe_center">安全中心</string>
+    <string name="phone_verify">手机验证</string>
+    <string name="identity_verify">身份验证</string>
+    <string name="pay_pwd_verify">支付密码验证</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.shui.enjoyfinancial.feature.mine;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -57,6 +58,7 @@ public class MineFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_setting:
+                startActivity(new Intent(mActivity, SettingActivity.class));
                 break;
             case R.id.iv_message:
                 break;

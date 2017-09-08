@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_product"
+    android:includeFontPadding="false"
+    android:paddingBottom="5dp"
+    android:paddingLeft="9dp"
+    android:paddingRight="9dp"
+    android:paddingTop="5dp"
+    android:text="【经典款】翡翠绿翠绿"
+    android:textColor="@drawable/selector_product_text"
+    android:textSize="10sp" />
