@@ -23,4 +23,10 @@
     <string name="phone_verify">手机验证</string>
     <string name="identity_verify">身份验证</string>
     <string name="pay_pwd_verify">支付密码验证</string>
+    <string name="default_address">默认地址</string>
+    <string name="edit">编辑</string>
+    <string name="delete">删除</string>
+    <string name="location_manager">地址管理</string>
+    <string name="add_address">添加地址</string>
+    <string name="my_order">我的订单</string>
 </resources>

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.shui.enjoyfinancial.R;
+import com.example.shui.enjoyfinancial.adapter.OrderAdapter;
 import com.example.shui.enjoyfinancial.base.BaseFragment;
 
 import butterknife.BindView;
@@ -71,6 +72,7 @@ public class MineFragment extends BaseFragment {
             case R.id.fl_bill:
                 break;
             case R.id.fl_order:
+                startActivity(new Intent(mActivity, OrderActivity.class));
                 break;
             case R.id.fl_help_center:
                 break;

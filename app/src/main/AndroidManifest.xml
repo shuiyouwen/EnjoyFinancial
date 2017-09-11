@@ -34,6 +34,11 @@
         <activity android:name=".feature.mine.PhoneVerifyActivity" />
         <activity android:name=".feature.mine.IdentityVerifyActivity" />
         <activity android:name=".feature.mine.PayPwdActivity" />
+        <activity android:name=".feature.mine.AddAddressActivity" />
+        <activity android:name=".feature.mine.OrderActivity" />
+        <activity android:name=".feature.mine.SubmitOrderActivity" />
+        <activity android:name=".feature.mine.PayOrderActivity" />
+        <activity android:name=".feature.mine.OrderDetailActivity" />
     </application>
 
 </manifest>

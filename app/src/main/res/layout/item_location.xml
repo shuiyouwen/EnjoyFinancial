@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:paddingBottom="13dp">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="24dp"
+        android:includeFontPadding="false"
+        android:text="马云"
+        android:textColor="@color/font_black_33"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="24dp"
+        android:includeFontPadding="false"
+        android:text="15618359999"
+        android:textColor="@color/font_black_33"
+        android:textSize="16sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:includeFontPadding="false"
+        android:text="上海市静安区江宁路博鸿大厦459号"
+        android:textColor="@color/font_black_33"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name"
+        app:layout_constraintRight_toRightOf="@+id/tv_phone"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+    <View
+        android:id="@+id/v_line"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@color/gray_dc"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_address" />
+
+    <CheckBox
+        android:id="@+id/cb_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:button="@drawable/selector_cb"
+        android:paddingLeft="8dp"
+        android:text="@string/default_address"
+        android:textColor="@drawable/selector_cb_text"
+        android:textSize="13sp"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_name"
+        app:layout_constraintTop_toBottomOf="@+id/v_line" />
+
+    <TextView
+        android:id="@+id/tv_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:drawableLeft="@mipmap/edite"
+        android:drawablePadding="7dp"
+        android:drawableStart="@mipmap/edite"
+        android:text="@string/edit"
+        android:textColor="@color/font_gray_66"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_select"
+        app:layout_constraintRight_toLeftOf="@+id/tv_delete"
+        app:layout_constraintTop_toTopOf="@+id/cb_select" />
+
+    <TextView
+        android:id="@+id/tv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:drawableLeft="@mipmap/delete"
+        android:drawablePadding="7dp"
+        android:drawableStart="@mipmap/delete"
+        android:text="@string/delete"
+        android:textColor="@color/font_gray_66"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/cb_select"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cb_select" />
+
+</android.support.constraint.ConstraintLayout>

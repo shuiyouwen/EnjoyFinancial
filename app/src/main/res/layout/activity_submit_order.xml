@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title_bar_back" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/bg_gray_ee">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="10dp">
+
+            <include layout="@layout/layout_order_linkman" />
+
+            <include layout="@layout/layout_product_preview" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="@android:color/white" />
+
+            <include layout="@layout/layout_order_product_detail" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_service_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="畅分期（服务费：0"
+                        android:textColor="@color/font_black_33"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:src="@mipmap/info" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="）"
+                        android:textColor="@color/font_black_33"
+                        android:textSize="14sp" />
+
+                    <CheckBox
+                        android:id="@+id/cb_staging"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/selector_cb_order" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/gray_dc" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="首付比例"
+                        android:textColor="@color/font_black_33"
+                        android:textSize="14sp" />
+
+                    <RadioGroup
+                        android:id="@+id/rg_down_payment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:layout_width="31dp"
+                            android:layout_height="31dp"
+                            android:background="@drawable/selector_rd_order"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="0"
+                            android:textColor="@drawable/selector_cb_text"
+                            android:textSize="12sp" />
+
+                        <RadioButton
+                            android:layout_width="31dp"
+                            android:layout_height="31dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginStart="14dp"
+                            android:background="@drawable/selector_rd_order"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="10%"
+                            android:textColor="@drawable/selector_cb_text"
+                            android:textSize="12sp" />
+
+                        <RadioButton
+                            android:layout_width="31dp"
+                            android:layout_height="31dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginStart="14dp"
+                            android:background="@drawable/selector_rd_order"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="20%"
+                            android:textColor="@drawable/selector_cb_text"
+                            android:textSize="12sp" />
+
+                        <RadioButton
+                            android:layout_width="31dp"
+                            android:layout_height="31dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginStart="14dp"
+                            android:background="@drawable/selector_rd_order"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="30%"
+                            android:textColor="@drawable/selector_cb_text"
+                            android:textSize="12sp" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/gray_dc" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="首付比例"
+                        android:textColor="@color/font_black_33"
+                        android:textSize="14sp" />
+
+                    <RadioGroup
+                        android:id="@+id/rg_by_stages_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:layout_width="31dp"
+                            android:layout_height="31dp"
+                            android:background="@drawable/selector_rd_order"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="3"
+                            android:textColor="@drawable/selector_cb_text"
+                            android:textSize="12sp" />
+
+                        <RadioButton
+                            android:layout_width="31dp"
+                            android:layout_height="31dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginStart="14dp"
+                            android:background="@drawable/selector_rd_order"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="6"
+                            android:textColor="@drawable/selector_cb_text"
+                            android:textSize="12sp" />
+
+                        <RadioButton
+                            android:layout_width="31dp"
+                            android:layout_height="31dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginStart="14dp"
+                            android:background="@drawable/selector_rd_order"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="9"
+                            android:textColor="@drawable/selector_cb_text"
+                            android:textSize="12sp" />
+
+                        <RadioButton
+                            android:layout_width="31dp"
+                            android:layout_height="31dp"
+                            android:layout_marginLeft="14dp"
+                            android:layout_marginStart="14dp"
+                            android:background="@drawable/selector_rd_order"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="12"
+                            android:textColor="@drawable/selector_cb_text"
+                            android:textSize="12sp" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/gray_dc" />
+
+                <LinearLayout
+                    android:id="@+id/ll_repayment_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="还款账户"
+                        android:textColor="@color/font_black_33"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/arrow_right" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/orange_cf"
+        android:text="提交订单"
+        android:textColor="@android:color/white"
+        android:textSize="17sp" />
+</LinearLayout>
