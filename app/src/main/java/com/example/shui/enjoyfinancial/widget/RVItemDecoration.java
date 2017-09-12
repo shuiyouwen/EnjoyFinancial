@@ -41,8 +41,13 @@ public class RVItemDecoration extends RecyclerView.ItemDecoration {
         if (current == -1) return;
         if (layoutManager instanceof LinearLayoutManager && !(layoutManager instanceof GridLayoutManager)) {//LinearLayoutManager
             if (orientation == LinearLayoutManager.VERTICAL) {//垂直
-                if (current == lastPosition) {//判断是否为最后一个item
-                    outRect.set(0, 0, 0, 0);
+//                if (current == lastPosition) {//判断是否为最后一个item
+//                    outRect.set(0, 0, 0, 0);
+//                } else {
+//                    outRect.set(0, 0, 0, decoration);
+//                }
+                if (current == 0) {
+                    outRect.set(0, decoration, 0, decoration);
                 } else {
                     outRect.set(0, 0, 0, decoration);
                 }

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_title_bar_back" />
+    <include layout="@layout/layout_titlebar_back" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -174,8 +174,7 @@
                 android:id="@+id/rv_repayment_plan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:paddingTop="10dp" />
+                android:background="@android:color/white" />
 
         </LinearLayout>
     </ScrollView>

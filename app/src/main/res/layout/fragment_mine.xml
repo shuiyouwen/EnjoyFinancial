@@ -7,7 +7,7 @@
     android:background="@color/bg_gray_ee"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_title_bar" />
+    <include layout="@layout/layout_titlebar" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -205,14 +205,14 @@
                         android:paddingTop="20dp">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:background="@mipmap/limit" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="14dp"
+                            android:layout_marginTop="10dp"
                             android:text="申请额度"
                             android:textColor="@color/font_gray_6b"
                             android:textSize="15sp" />
@@ -242,14 +242,14 @@
                         android:paddingTop="20dp">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:background="@mipmap/bankcard" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="14dp"
+                            android:layout_marginTop="10dp"
                             android:text="银行卡"
                             android:textColor="@color/font_gray_6b"
                             android:textSize="15sp" />
@@ -278,14 +278,14 @@
                         android:paddingTop="20dp">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:background="@mipmap/discount_coupon" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="14dp"
+                            android:layout_marginTop="10dp"
                             android:text="优惠券"
                             android:textColor="@color/font_gray_6b"
                             android:textSize="15sp" />
@@ -316,14 +316,14 @@
                         android:paddingTop="20dp">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:background="@mipmap/bill" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="14dp"
+                            android:layout_marginTop="10dp"
                             android:text="账单"
                             android:textColor="@color/font_gray_6b"
                             android:textSize="15sp" />
@@ -353,14 +353,14 @@
                         android:paddingTop="20dp">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:background="@mipmap/integral" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="14dp"
+                            android:layout_marginTop="10dp"
                             android:text="订单"
                             android:textColor="@color/font_gray_6b"
                             android:textSize="15sp" />
@@ -389,14 +389,14 @@
                         android:paddingTop="20dp">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:background="@mipmap/help_center" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="14dp"
+                            android:layout_marginTop="10dp"
                             android:text="帮助中心"
                             android:textColor="@color/font_gray_6b"
                             android:textSize="15sp" />

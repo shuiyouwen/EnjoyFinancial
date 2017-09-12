@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <include layout="@layout/layout_title_bar_back" />
+    <include layout="@layout/layout_titlebar_back" />
 
     <TextView
         android:id="@+id/tv_phone_verify"

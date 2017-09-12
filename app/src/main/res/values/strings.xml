@@ -29,4 +29,6 @@
     <string name="location_manager">地址管理</string>
     <string name="add_address">添加地址</string>
     <string name="my_order">我的订单</string>
+    <string name="bank_card">银行卡</string>
+    <string name="message_center">消息中心</string>
 </resources>

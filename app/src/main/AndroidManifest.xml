@@ -39,6 +39,9 @@
         <activity android:name=".feature.mine.SubmitOrderActivity" />
         <activity android:name=".feature.mine.PayOrderActivity" />
         <activity android:name=".feature.mine.OrderDetailActivity" />
+        <activity android:name=".feature.mine.BankCardActivity" />
+        <activity android:name=".feature.mine.AddBankCardActivity" />
+        <activity android:name=".feature.mine.MessageActivity" />
     </application>
 
 </manifest>

@@ -5,13 +5,12 @@
     android:background="@color/bg_gray_ee"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_title_bar_back" />
+    <include layout="@layout/layout_titlebar_back" />
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_order"
