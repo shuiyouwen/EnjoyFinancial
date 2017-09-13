@@ -42,6 +42,9 @@
         <activity android:name=".feature.mine.BankCardActivity" />
         <activity android:name=".feature.mine.AddBankCardActivity" />
         <activity android:name=".feature.mine.MessageActivity" />
+        <activity android:name=".feature.mine.UsableCouponActivity" />
+        <activity android:name=".feature.mine.CouponListActivity" />
+        <activity android:name=".feature.mine.BillActivity" />
     </application>
 
 </manifest>

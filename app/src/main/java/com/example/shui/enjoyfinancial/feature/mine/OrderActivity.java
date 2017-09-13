@@ -62,7 +62,7 @@ public class OrderActivity extends BaseActivity {
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                startActivity(new Intent(OrderActivity.this, PayOrderActivity.class));
+                startActivity(new Intent(OrderActivity.this, SubmitOrderActivity.class));
             }
         });
     }

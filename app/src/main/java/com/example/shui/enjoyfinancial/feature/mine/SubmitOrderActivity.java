@@ -1,14 +1,18 @@
 package com.example.shui.enjoyfinancial.feature.mine;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.shui.enjoyfinancial.R;
+import com.example.shui.enjoyfinancial.adapter.CouponAdapter;
 import com.example.shui.enjoyfinancial.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -41,5 +45,16 @@ public class SubmitOrderActivity extends BaseActivity {
     @Override
     protected int getPageTitle() {
         return R.string.my_order;
+    }
+
+    @OnClick({R.id.ll_discounts, R.id.btn_submit})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.ll_discounts:
+                startActivity(new Intent(this, UsableCouponActivity.class));
+                break;
+            case R.id.btn_submit:
+                break;
+        }
     }
 }

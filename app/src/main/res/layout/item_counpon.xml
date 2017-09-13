@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@mipmap/coupon"
+    android:paddingBottom="15dp">
+
+    <TextView
+        android:id="@+id/tv_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="41dp"
+        android:includeFontPadding="false"
+        android:text="￥"
+        android:textColor="@android:color/white"
+        android:textSize="21sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:includeFontPadding="false"
+        android:text="5"
+        android:textColor="@android:color/white"
+        android:textSize="46sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_unit"
+        app:layout_constraintLeft_toRightOf="@+id/tv_unit" />
+
+    <TextView
+        android:id="@+id/tv_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="满100元减5元"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_unit"
+        app:layout_constraintRight_toRightOf="@+id/tv_price"
+        app:layout_constraintTop_toBottomOf="@+id/tv_unit" />
+
+    <TextView
+        android:id="@+id/tv_rule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="124dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="21dp"
+        android:includeFontPadding="false"
+        android:text="限购【某某旗舰店】店铺商品"
+        android:textColor="@color/font_black_33"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="2017/05/01-2017/07/01"
+        android:textColor="@color/font_gray_66"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_detail"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_rule"
+        app:layout_constraintRight_toLeftOf="@+id/btn_use" />
+
+    <Button
+        android:id="@+id/btn_use"
+        android:layout_width="73dp"
+        android:layout_height="27dp"
+        android:layout_marginRight="17dp"
+        android:background="@drawable/selector_btn_sms"
+        android:text="立即使用"
+        android:textColor="@color/font_orange_cf"
+        android:textSize="13sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_detail"
+        app:layout_constraintRight_toRightOf="parent" />
+</android.support.constraint.ConstraintLayout>

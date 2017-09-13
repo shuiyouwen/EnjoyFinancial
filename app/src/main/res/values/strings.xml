@@ -31,4 +31,7 @@
     <string name="my_order">我的订单</string>
     <string name="bank_card">银行卡</string>
     <string name="message_center">消息中心</string>
+    <string name="usable_coupon">可用优惠券</string>
+    <string name="coupon">优惠券</string>
+    <string name="my_bill">我的账单</string>
 </resources>

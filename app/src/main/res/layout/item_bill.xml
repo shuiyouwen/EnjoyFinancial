@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="20dp"
+    android:paddingLeft="11dp"
+    android:paddingRight="11dp"
+    android:paddingTop="20dp">
+
+    <ImageView
+        android:id="@+id/iv_icn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/bill_person_data_red"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_borrow_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:text="借款金额"
+        android:textColor="@color/font_black_33"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toRightOf="@+id/iv_icn"
+        app:layout_constraintTop_toTopOf="@+id/iv_icn" />
+
+    <TextView
+        android:id="@+id/tv_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="￥9888"
+        android:textColor="@color/font_black_33"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toRightOf="@+id/tv_borrow_money"
+        app:layout_constraintTop_toTopOf="@+id/tv_borrow_money" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="共6期：  已还3期"
+        android:textColor="@color/font_black_33"
+        android:textSize="15sp"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_borrow_money"
+        app:layout_constraintTop_toBottomOf="@+id/tv_borrow_money" />
+
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已逾期"
+        android:textColor="@color/font_red_fe"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

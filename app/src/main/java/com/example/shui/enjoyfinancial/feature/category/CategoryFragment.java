@@ -1,5 +1,6 @@
 package com.example.shui.enjoyfinancial.feature.category;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,9 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.shui.enjoyfinancial.R;
 import com.example.shui.enjoyfinancial.adapter.CategoryListAdapter;
 import com.example.shui.enjoyfinancial.base.BaseFragment;
+import com.example.shui.enjoyfinancial.feature.product.ProductActivity;
 import com.example.shui.enjoyfinancial.widget.RVItemDecoration;
 
 import java.util.Arrays;
@@ -77,6 +80,12 @@ public class CategoryFragment extends BaseFragment {
         mSelectTvSparse.append(R.id.tv_recommend, mTvRecommend);
         mSelectTvSparse.append(R.id.fl_price, mTvPrice);
         selectTextView(R.id.tv_category);
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                startActivity(new Intent(mActivity, ProductActivity.class));
+            }
+        });
     }
 
     @Override

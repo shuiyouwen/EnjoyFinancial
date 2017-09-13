@@ -70,8 +70,10 @@ public class MineFragment extends BaseFragment {
                 startActivity(new Intent(mActivity, BankCardActivity.class));
                 break;
             case R.id.fl_discount_coupon:
+                startActivity(new Intent(mActivity, CouponListActivity.class));
                 break;
             case R.id.fl_bill:
+                startActivity(new Intent(mActivity, BillActivity.class));
                 break;
             case R.id.fl_order:
                 startActivity(new Intent(mActivity, OrderActivity.class));

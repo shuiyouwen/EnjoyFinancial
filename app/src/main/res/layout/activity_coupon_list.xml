@@ -19,17 +19,17 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_recommend"
+                android:id="@+id/tv_can_use"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="推荐消息"
+                android:text="可使用"
                 android:textColor="@color/font_orange_cf"
                 android:textSize="15sp" />
 
             <View
-                android:id="@+id/v_line_recommend"
+                android:id="@+id/v_line_can_use"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@color/orange_cf" />
@@ -51,17 +51,17 @@
 
 
             <TextView
-                android:id="@+id/tv_system"
+                android:id="@+id/tv_history"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="系统通知"
+                android:text="历史记录"
                 android:textColor="@color/font_black_33"
                 android:textSize="15sp" />
 
             <View
-                android:id="@+id/v_line_system"
+                android:id="@+id/v_line_history"
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@color/orange_cf"
@@ -75,4 +75,5 @@
         android:id="@+id/fl_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </LinearLayout>
