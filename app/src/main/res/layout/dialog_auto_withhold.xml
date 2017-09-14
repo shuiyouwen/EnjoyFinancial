@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tv_content"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_white_rectangle"
+    android:lineSpacingExtra="8dp"
+    android:paddingBottom="23dp"
+    android:paddingLeft="28dp"
+    android:paddingRight="18dp"
+    android:paddingTop="28dp"
+    android:text="系统将于2017/05/06自动扣款，请\n将应还金额提前存入已签约银行卡，\n谢谢！"
+    android:textColor="@color/font_black_33"
+    android:textSize="15sp">
+
+</TextView>

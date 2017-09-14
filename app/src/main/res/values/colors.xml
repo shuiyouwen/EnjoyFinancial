@@ -31,6 +31,7 @@
     <color name="gray_fa">#FAFAFA</color>
     <color name="gray_d7">#D7D7D7</color>
     <color name="gray_e5">#e5e5e5</color>
+    <color name="font_gray_b5">#b5b5b5</color>
 
     <drawable name="drawable_white">@android:color/white</drawable>
 </resources>

@@ -2,6 +2,7 @@ package com.example.shui.enjoyfinancial.widget.dialog;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -36,6 +37,7 @@ public class VerifyCodeDialog extends AlertDialog {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_verify_code);
         mBind = ButterKnife.bind(this);
+        getWindow().setBackgroundDrawable(new BitmapDrawable());
     }
 
     @Override

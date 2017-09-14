@@ -1,5 +1,6 @@
 package com.example.shui.enjoyfinancial.feature.mine;
 
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,6 +16,7 @@ import com.example.shui.enjoyfinancial.utils.Utils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
@@ -59,5 +61,10 @@ public class BillActivity extends BaseActivity {
     protected void onDestroy() {
         mBind.unbind();
         super.onDestroy();
+    }
+
+    @OnClick(R.id.btn_repayment)
+    public void onViewClicked() {
+        startActivity(new Intent(this, RepaymentDetailActivity.class));
     }
 }
