@@ -45,6 +45,8 @@
         <activity android:name=".feature.mine.UsableCouponActivity" />
         <activity android:name=".feature.mine.CouponListActivity" />
         <activity android:name=".feature.mine.BillActivity" />
+        <activity android:name=".feature.mine.HelperActivity" />
+        <activity android:name=".feature.mine.HelpDetailActivity" />
     </application>
 
 </manifest>

@@ -79,6 +79,7 @@ public class MineFragment extends BaseFragment {
                 startActivity(new Intent(mActivity, OrderActivity.class));
                 break;
             case R.id.fl_help_center:
+                startActivity(new Intent(mActivity, HelperActivity.class));
                 break;
         }
     }
