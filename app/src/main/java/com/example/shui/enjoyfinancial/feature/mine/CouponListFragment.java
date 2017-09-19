@@ -8,14 +8,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.shui.enjoyfinancial.R;
-import com.example.shui.enjoyfinancial.adapter.CouponAdapter;
+import com.example.shui.enjoyfinancial.adapter.CouponListAdapter;
 import com.example.shui.enjoyfinancial.base.BaseFragment;
 import com.example.shui.enjoyfinancial.widget.RVItemDecoration;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,7 +54,7 @@ public class CouponListFragment extends BaseFragment {
     private void initView() {
         List<String> data = Arrays.asList("1", "2", "3", "4");
 //        List<String> data = new ArrayList<>();
-        CouponAdapter adapter = new CouponAdapter(data);
+        CouponListAdapter adapter = new CouponListAdapter(data);
         mRvCoupon.setAdapter(adapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(mActivity);
         mRvCoupon.setLayoutManager(layoutManager);
@@ -62,6 +64,7 @@ public class CouponListFragment extends BaseFragment {
         View inflate = View.inflate(mActivity, R.layout.empty_coupon, null);
         adapter.setEmptyView(inflate);
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

@@ -3,14 +3,21 @@ package com.example.shui.enjoyfinancial.utils;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Paint;
+import android.support.annotation.ColorRes;
 import android.support.annotation.StringRes;
+import android.support.v4.content.ContextCompat;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.TextPaint;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ForegroundColorSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.shui.enjoyfinancial.App;
 import com.example.shui.enjoyfinancial.R;
 
 /**
@@ -58,5 +65,27 @@ public class Utils {
 
     public static void showToast(Context context, @StringRes int messageRes) {
         showToast(context, context.getString(messageRes));
+    }
+
+    /**
+     * 设置价格
+     *
+     * @param price
+     * @param textView
+     * @param spSize
+     * @param colorRes
+     */
+    public static void setPrice(String price, TextView textView, int spSize, @ColorRes int colorRes) {
+        price = String.format("￥%s", price);
+        SpannableStringBuilder builder = new SpannableStringBuilder(price);
+        if (colorRes != 0) {
+            ForegroundColorSpan colorSpan = new ForegroundColorSpan(ContextCompat.getColor(App.sContext, colorRes));
+            builder.setSpan(colorSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        if (spSize != 0) {
+            AbsoluteSizeSpan sizeSpan = new AbsoluteSizeSpan(dip2px(App.sContext, spSize));
+            builder.setSpan(sizeSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        textView.setText(builder);
     }
 }

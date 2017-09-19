@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.shui.enjoyfinancial.R;
-import com.example.shui.enjoyfinancial.adapter.CouponAdapter;
 import com.example.shui.enjoyfinancial.base.BaseActivity;
 
 import butterknife.BindView;

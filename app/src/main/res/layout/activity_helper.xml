@@ -8,15 +8,22 @@
 
     <include layout="@layout/layout_titlebar_back" />
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout"
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:background="@android:color/white"
-        app:tabIndicatorColor="@color/orange_cf"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/font_orange_cf"
-        app:tabTextColor="@color/font_black_33" />
+        android:layout_height="wrap_content"
+        app:cardElevation="5dp">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@android:color/white"
+            app:tabIndicatorColor="@color/orange_cf"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/font_orange_cf"
+            app:tabTextColor="@color/font_black_33" />
+
+    </android.support.v7.widget.CardView>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"

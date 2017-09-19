@@ -1,26 +1,40 @@
 package com.example.shui.enjoyfinancial.adapter;
 
-import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.BaseViewHolder;
-import com.example.shui.enjoyfinancial.R;
+import com.example.shui.enjoyfinancial.feature.mine.CouponListFragment;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
- * 优惠券
- * Created by Shui on 2017/9/12.
+ * 代金券
+ * Created by Shui on 2017/9/14.
  */
 
-public class CouponAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
+public class CouponAdapter extends FragmentPagerAdapter {
+    private List<String> mTitles = Arrays.asList("可使用", "历史记录");
+    private List<CouponListFragment> mCouponListFragments = Arrays.asList(CouponListFragment.newInstance()
+            , CouponListFragment.newInstance());
 
-    public CouponAdapter(@Nullable List<String> data) {
-        super(R.layout.item_counpon, data);
+    public CouponAdapter(FragmentManager fm) {
+        super(fm);
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, String item) {
+    public Fragment getItem(int position) {
+        return mCouponListFragments.get(position);
+    }
 
+    @Override
+    public int getCount() {
+        return mTitles.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return mTitles.get(position);
     }
 }

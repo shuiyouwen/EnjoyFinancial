@@ -38,6 +38,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
 import static com.example.shui.enjoyfinancial.utils.Utils.dip2px;
+import static com.example.shui.enjoyfinancial.utils.Utils.setPrice;
 import static com.example.shui.enjoyfinancial.utils.Utils.strikethroughTextView;
 
 /**
@@ -124,9 +125,11 @@ public class HomeFragment extends BaseFragment {
         strikethroughTextView(mTvOriginalPrice3);
         strikethroughTextView(mTvOriginalPrice4);
 
-        setPrice1("5899", mTvPrice);
+        setPrice("5899", mTvPrice, 12, R.color.font_gray_6b);
         mTvOriginalPrice2.setVisibility(View.GONE);
-        setPrice("1999", mTvPrice3);
+        setPrice("1999", mTvPrice2, 10, 0);
+        setPrice("1999", mTvPrice3, 10, 0);
+        setPrice("1999", mTvPrice4, 10, 0);
 
         List<BannerResp> bannerResps = new ArrayList<>();
         bannerResps.add(new BannerResp());
@@ -207,27 +210,4 @@ public class HomeFragment extends BaseFragment {
     public void onViewClicked() {
     }
 
-    /**
-     * 设置第一个产品的价格
-     */
-    private void setPrice1(String price, TextView textView) {
-        price = String.format("￥%s", price);
-        SpannableStringBuilder builder = new SpannableStringBuilder(price);
-        AbsoluteSizeSpan sizeSpan1 = new AbsoluteSizeSpan(dip2px(mActivity, 12));
-        ForegroundColorSpan colorSpan1 = new ForegroundColorSpan(ContextCompat.getColor(mActivity, R.color.font_gray_6b));
-        builder.setSpan(sizeSpan1, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        builder.setSpan(colorSpan1, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        textView.setText(builder);
-    }
-
-    /**
-     * 设置第一个产品之外的价格
-     */
-    private void setPrice(String price, TextView textView) {
-        price = String.format("￥%s", price);
-        SpannableStringBuilder builder = new SpannableStringBuilder(price);
-        AbsoluteSizeSpan sizeSpan1 = new AbsoluteSizeSpan(dip2px(mActivity, 10));
-        builder.setSpan(sizeSpan1, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        textView.setText(builder);
-    }
 }
