@@ -3,7 +3,6 @@ package com.example.shui.enjoyfinancial.feature.home;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -18,7 +17,7 @@ import com.example.shui.enjoyfinancial.base.BaseFragment;
 import com.example.shui.enjoyfinancial.network.ResultSubject;
 import com.example.shui.enjoyfinancial.network.RetrofitClient;
 import com.example.shui.enjoyfinancial.network.bean.resp.AdResp;
-import com.example.shui.enjoyfinancial.network.bean.resp.RecommendResp;
+import com.example.shui.enjoyfinancial.network.bean.resp.ProductResp;
 import com.example.shui.enjoyfinancial.network.helper.RxResultHelper;
 import com.example.shui.enjoyfinancial.network.helper.RxSchedulersHelper;
 import com.example.shui.enjoyfinancial.utils.Utils;
@@ -151,9 +150,9 @@ public class HomeFragment extends BaseFragment {
                 .compose(RxSchedulersHelper.ioMain())
                 .compose(this.bindToLifecycle())
                 .compose(RxResultHelper.handleResult())
-                .subscribe(new ResultSubject<List<RecommendResp>>(this) {
+                .subscribe(new ResultSubject<List<ProductResp>>(this) {
                     @Override
-                    public void onNext(List<RecommendResp> response) {
+                    public void onNext(List<ProductResp> response) {
                         renderProduct(response);
                     }
                 });
@@ -164,31 +163,31 @@ public class HomeFragment extends BaseFragment {
      *
      * @param response
      */
-    private void renderProduct(List<RecommendResp> response) {
+    private void renderProduct(List<ProductResp> response) {
         for (int i = 0; i < response.size(); i++) {
-            RecommendResp recommendResp = response.get(i);
+            ProductResp productResp = response.get(i);
             try {
                 int position = i + 1;
                 ImageView ivProduct = (ImageView) getClass().getField("mIvProduct" + position).get(this);
-                loadImage(recommendResp.getImg_url(), ivProduct, 0, 0);
+                loadImage(productResp.getImg_url(), ivProduct, 0, 0);
 
                 TextView tvProduct = (TextView) getClass().getField("mTvProduct" + position).get(this);
-                tvProduct.setText(recommendResp.getTitle());
+                tvProduct.setText(productResp.getTitle());
 
                 int fontSize = i == 0 ? 12 : 10;
                 int colorRes = i == 0 ? R.color.font_gray_6b : 0;
                 TextView tvPrice = (TextView) getClass().getField("mTvPrice" + position).get(this);
-                setPrice(formatAmt(recommendResp.getPreferent_min()), tvPrice, fontSize, colorRes);
+                setPrice(formatAmt(productResp.getPreferent_min()), tvPrice, fontSize, colorRes);
 
                 TextView tvOriginalPrice = (TextView) getClass().getField("mTvOriginalPrice" + position).get(this);
                 strikethroughTextView(tvOriginalPrice);
-                if (!TextUtils.isEmpty(recommendResp.getPrice_min())) {
-                    tvOriginalPrice.setText(String.format("￥%s", formatAmt(recommendResp.getPrice_min())));
+                if (!TextUtils.isEmpty(productResp.getPrice_min())) {
+                    tvOriginalPrice.setText(String.format("￥%s", formatAmt(productResp.getPrice_min())));
                 }
 
                 TextView tvMonthPrice = (TextView) getClass().getField("mTvMonthPrice" + position).get(this);
-                String monthPrice = recommendResp.isSupportStages() ?
-                        String.format("￥%s/月 起", formatAmt(recommendResp.getMonthly_min())) : "暂不支持";
+                String monthPrice = productResp.isSupportStages() ?
+                        String.format("￥%s/月 起", formatAmt(productResp.getMonthly_min())) : "暂不支持";
                 tvMonthPrice.setText(monthPrice);
             } catch (NoSuchFieldException e) {
                 e.printStackTrace();

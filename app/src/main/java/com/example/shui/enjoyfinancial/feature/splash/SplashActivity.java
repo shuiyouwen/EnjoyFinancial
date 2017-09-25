@@ -38,6 +38,7 @@ public class SplashActivity extends BaseActivity {
     ImageView mIvPicture;
     private Unbinder mBind;
     private long mStartTime;
+    private final static long INTERVAL_TIME = 2000;//间隔时间
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -85,7 +86,7 @@ public class SplashActivity extends BaseActivity {
      * 跳转到主界面
      */
     private void goMain() {
-        long time = 5000 - (System.currentTimeMillis() - mStartTime);
+        long time = INTERVAL_TIME - (System.currentTimeMillis() - mStartTime);
         time = time > 0 ? time : 0;
         Observable.timer(time, TimeUnit.MILLISECONDS)
                 .compose(RxSchedulersHelper.ioMain())

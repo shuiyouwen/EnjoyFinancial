@@ -7,7 +7,7 @@ import android.text.TextUtils;
  * Created by Shui on 2017/9/25.
  */
 
-public class RecommendResp {
+public class ProductResp {
 
 
     /**

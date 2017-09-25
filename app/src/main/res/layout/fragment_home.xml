@@ -165,11 +165,11 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginStart="12dp"
                 android:background="@drawable/shape_red_rectangle"
+                android:text="优惠价"
                 android:textColor="@android:color/white"
                 android:textSize="10sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/tv_price1"
-                app:layout_constraintLeft_toRightOf="@+id/tv_price1"
-                android:text="优惠价" />
+                app:layout_constraintLeft_toRightOf="@+id/tv_price1" />
 
             <LinearLayout
                 android:id="@+id/ll_cxf"
@@ -223,7 +223,9 @@
                 android:layout_width="103dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
+                android:ellipsize="end"
                 android:includeFontPadding="false"
+                android:lines="2"
                 android:textColor="@color/font_black_33"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="@+id/iv_product2"
@@ -315,7 +317,9 @@
                 android:layout_width="103dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
+                android:ellipsize="end"
                 android:includeFontPadding="false"
+                android:lines="2"
                 android:textColor="@color/font_black_33"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="@+id/iv_product3"
@@ -403,7 +407,9 @@
                 android:layout_width="103dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
+                android:ellipsize="end"
                 android:includeFontPadding="false"
+                android:lines="2"
                 android:textColor="@color/font_black_33"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="@+id/iv_product4"
