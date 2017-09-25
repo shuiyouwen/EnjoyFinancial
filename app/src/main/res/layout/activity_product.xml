@@ -318,7 +318,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:text="帮助中心"
+                    android:text="帮助"
                     android:textColor="@color/font_orange_cf"
                     android:textSize="12sp" />
             </LinearLayout>

@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.shui.enjoyfinancial.R;
 import com.example.shui.enjoyfinancial.base.BaseActivity;
 import com.example.shui.enjoyfinancial.widget.dialog.ProductDetailDialog;
+import com.example.shui.enjoyfinancial.widget.dialog.ProductHelpDialog;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -86,7 +87,7 @@ public class ProductActivity extends BaseActivity {
     public void onBottomViewClicked(View view) {
         switch (view.getId()) {
             case R.id.fl_help_center:
-                Toast.makeText(this, "帮助详情", Toast.LENGTH_SHORT).show();
+                new ProductHelpDialog(this).show();
                 break;
             case R.id.tv_buy:
                 new ProductDetailDialog(this).show();

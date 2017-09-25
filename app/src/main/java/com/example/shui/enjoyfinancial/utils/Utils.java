@@ -14,9 +14,12 @@ import android.text.style.ForegroundColorSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.shui.enjoyfinancial.App;
 import com.example.shui.enjoyfinancial.R;
 
@@ -87,5 +90,24 @@ public class Utils {
             builder.setSpan(sizeSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
         textView.setText(builder);
+    }
+
+    /**
+     * 使用glide加载图片
+     *
+     * @param imgUrl      图片地址
+     * @param imageView   加载图片控件
+     * @param placeholder 未加载图片占位图
+     * @param error       加载错误占位图
+     */// TODO: 2017/9/25 默认图片，和错误图片
+    public static void loadImage(String imgUrl, ImageView imageView, int placeholder, int error) {
+        Glide.with(App.sContext)
+                .load(imgUrl)
+                .placeholder(placeholder)
+                .error(error)
+                .crossFade()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .dontAnimate()
+                .into(imageView);
     }
 }

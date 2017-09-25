@@ -3,10 +3,6 @@ package com.example.shui.enjoyfinancial.feature.home;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
-import android.text.style.AbsoluteSizeSpan;
-import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,15 +13,17 @@ import android.widget.TextView;
 import com.example.shui.enjoyfinancial.R;
 import com.example.shui.enjoyfinancial.adapter.BannerAdapter;
 import com.example.shui.enjoyfinancial.base.BaseFragment;
-import com.example.shui.enjoyfinancial.network.RxSchedulersHelper;
-import com.example.shui.enjoyfinancial.network.bean.resp.BannerResp;
+import com.example.shui.enjoyfinancial.network.ResultSubject;
+import com.example.shui.enjoyfinancial.network.RetrofitClient;
+import com.example.shui.enjoyfinancial.network.bean.resp.AdResp;
+import com.example.shui.enjoyfinancial.network.helper.RxResultHelper;
+import com.example.shui.enjoyfinancial.network.helper.RxSchedulersHelper;
 import com.example.shui.enjoyfinancial.utils.Utils;
 import com.example.shui.enjoyfinancial.widget.magicindicator.MagicIndicator;
 import com.example.shui.enjoyfinancial.widget.magicindicator.SolidCircleNavigator;
 import com.example.shui.enjoyfinancial.widget.magicindicator.ViewPagerHelper;
 import com.example.shui.enjoyfinancial.widget.viewpager.CycleGalleryViewPager;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -35,9 +33,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 
-import static com.example.shui.enjoyfinancial.utils.Utils.dip2px;
 import static com.example.shui.enjoyfinancial.utils.Utils.setPrice;
 import static com.example.shui.enjoyfinancial.utils.Utils.strikethroughTextView;
 
@@ -131,33 +127,39 @@ public class HomeFragment extends BaseFragment {
         setPrice("1999", mTvPrice3, 10, 0);
         setPrice("1999", mTvPrice4, 10, 0);
 
-        List<BannerResp> bannerResps = new ArrayList<>();
-        bannerResps.add(new BannerResp());
-        bannerResps.add(new BannerResp());
-        bannerResps.add(new BannerResp());
-        BannerAdapter adapter = new BannerAdapter(bannerResps, mActivity);
-        mVpBanner.setAdapter(adapter);
-        mVpBanner.setNarrowFactor(1f);
-        //点击取消轮播，抬起手指继续轮播
-        mVpBanner.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        cancelCarousel();
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        startCarousel();
-                        break;
-                }
-                return false;
-            }
-        });
-        initProductIndicator(bannerResps);
-        startCarousel();
+        initBanner();
     }
 
-    private void initProductIndicator(List<BannerResp> response) {
+    private void initBanner() {
+        RetrofitClient.getApi().adList("BANNER")
+                .compose(RxSchedulersHelper.ioMain())
+                .compose(this.bindToLifecycle())
+                .compose(RxResultHelper.handleResult())
+                .subscribe(new ResultSubject<List<AdResp>>(this) {
+                    @Override
+                    public void onNext(List<AdResp> response) {
+                        BannerAdapter adapter = new BannerAdapter(response, mActivity);
+                        mVpBanner.setAdapter(adapter);
+                        mVpBanner.setNarrowFactor(1f);
+                        //点击取消轮播，抬起手指继续轮播
+                        mVpBanner.setOnTouchListener((v, event) -> {
+                            switch (event.getAction()) {
+                                case MotionEvent.ACTION_DOWN:
+                                    cancelCarousel();
+                                    break;
+                                case MotionEvent.ACTION_UP:
+                                    startCarousel();
+                                    break;
+                            }
+                            return false;
+                        });
+                        initProductIndicator(response);
+                        startCarousel();
+                    }
+                });
+    }
+
+    private void initProductIndicator(List<AdResp> response) {
         SolidCircleNavigator circleNavigator = new SolidCircleNavigator(mActivity);
         circleNavigator.setCircleSpacing(Utils.dip2px(mActivity, 5));
         circleNavigator.setCircleCount(response.size());
@@ -189,14 +191,11 @@ public class HomeFragment extends BaseFragment {
             }
         }
         mBannerSubscribe = Observable.interval(3, 3, TimeUnit.SECONDS)
-                .compose(RxSchedulersHelper.<Long>ioMain())
-                .compose(this.<Long>bindToLifecycle())
-                .subscribe(new Consumer<Long>() {
-                    @Override
-                    public void accept(Long aLong) throws Exception {
-                        int currentItem = mVpBanner.getCurrentItem();
-                        mVpBanner.setCurrentItem(++currentItem);
-                    }
+                .compose(RxSchedulersHelper.ioMain())
+                .compose(this.bindToLifecycle())
+                .subscribe(aLong -> {
+                    int currentItem = mVpBanner.getCurrentItem();
+                    mVpBanner.setCurrentItem(++currentItem);
                 });
     }
 

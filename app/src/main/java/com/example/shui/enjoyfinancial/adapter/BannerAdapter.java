@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.shui.enjoyfinancial.R;
-import com.example.shui.enjoyfinancial.network.bean.resp.BannerResp;
+import com.example.shui.enjoyfinancial.network.bean.resp.AdResp;
+import com.example.shui.enjoyfinancial.utils.Utils;
 
 import java.util.List;
 
@@ -18,10 +18,10 @@ import java.util.List;
 
 public class BannerAdapter extends PagerAdapter {
 
-    private final List<BannerResp> mBannerResps;
+    private final List<AdResp> mBannerResps;
     private final Activity mActivity;
 
-    public BannerAdapter(List<BannerResp> bannerResps, Activity activity) {
+    public BannerAdapter(List<AdResp> bannerResps, Activity activity) {
         mBannerResps = bannerResps;
         mActivity = activity;
     }
@@ -39,9 +39,13 @@ public class BannerAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
+        AdResp adResp = mBannerResps.get(position);
         ImageView imageView = new ImageView(mActivity);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        imageView.setImageResource(R.mipmap.index_banner);
+        Utils.loadImage(adResp.getImg_url(), imageView, 0, 0);
+        if (adResp.isSkip()) {
+            // TODO: 2017/9/22 跳转广告
+        }
         container.addView(imageView);
         return imageView;
     }

@@ -17,7 +17,6 @@ import com.example.shui.enjoyfinancial.widget.RVItemDecoration;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -60,9 +59,10 @@ public class CouponListFragment extends BaseFragment {
         mRvCoupon.setLayoutManager(layoutManager);
         RVItemDecoration itemDecoration = new RVItemDecoration(Color.TRANSPARENT, 13);
         mRvCoupon.addItemDecoration(itemDecoration);
-
         View inflate = View.inflate(mActivity, R.layout.empty_coupon, null);
         adapter.setEmptyView(inflate);
+        inflate.setOnClickListener(view -> Toast.makeText(mActivity, "hehe", Toast.LENGTH_SHORT).show());
+
     }
 
     @Override

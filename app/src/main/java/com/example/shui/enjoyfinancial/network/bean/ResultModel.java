@@ -1,4 +1,4 @@
-package com.example.shui.enjoyfinancial.network;
+package com.example.shui.enjoyfinancial.network.bean;
 
 /**
  * @author: Mr.Shui

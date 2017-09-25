@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.shui.enjoyfinancial.R;
 import com.example.shui.enjoyfinancial.adapter.HelpListAdapter;
 import com.example.shui.enjoyfinancial.base.BaseFragment;
@@ -59,12 +58,8 @@ public class HelpListFragment extends BaseFragment {
         mRvHelp.setLayoutManager(layoutManager);
         RVItemDecoration itemDecoration = new RVItemDecoration(ContextCompat.getColor(mActivity, R.color.gray_dc), 0.5f);
         mRvHelp.addItemDecoration(itemDecoration);
-        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                startActivity(new Intent(mActivity, HelpDetailActivity.class));
-            }
-        });
+        adapter.setOnItemClickListener((adapter1, view, position) ->
+                startActivity(new Intent(mActivity, HelpDetailActivity.class)));
     }
 
 

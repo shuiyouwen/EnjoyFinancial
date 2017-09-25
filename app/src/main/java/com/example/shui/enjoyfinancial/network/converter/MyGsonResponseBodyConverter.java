@@ -2,7 +2,7 @@ package com.example.shui.enjoyfinancial.network.converter;
 
 import android.text.TextUtils;
 
-import com.example.shui.enjoyfinancial.network.ResultModel;
+import com.example.shui.enjoyfinancial.network.bean.ResultModel;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;

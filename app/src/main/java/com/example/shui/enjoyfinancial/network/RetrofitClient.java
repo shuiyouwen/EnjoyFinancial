@@ -3,6 +3,7 @@ package com.example.shui.enjoyfinancial.network;
 import com.example.shui.enjoyfinancial.BuildConfig;
 import com.example.shui.enjoyfinancial.network.api.Api;
 import com.example.shui.enjoyfinancial.network.converter.GsonConverterFactory;
+import com.example.shui.enjoyfinancial.network.interceptor.BasicParamsInterceptor;
 import com.example.shui.enjoyfinancial.network.interceptor.HttpLoggingInterceptor;
 import com.example.shui.enjoyfinancial.utils.GetConfiguration;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
@@ -20,7 +21,7 @@ import retrofit2.Retrofit;
 
 public class RetrofitClient {
     private static Retrofit mRetrofit;
-//    private static BasicParamsInterceptor.Builder sParamsBuilder;
+    private static BasicParamsInterceptor.Builder sParamsBuilder;
 
     static {
         String baseUrl = GetConfiguration.getInstance().getBaseUrl();
@@ -34,10 +35,10 @@ public class RetrofitClient {
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             builder.addInterceptor(loggingInterceptor);
         }
-//        sParamsBuilder = new BasicParamsInterceptor.Builder();
-        //  sParamsBuilder.addParam("platform", DeviceInfo.PLATFORM);
-     //   sParamsBuilder.addParam("version", DeviceInfo.get().getAppVersion());
-//        builder.addInterceptor(sParamsBuilder.build());
+        sParamsBuilder = new BasicParamsInterceptor.Builder();
+        sParamsBuilder.addQueryParam("platform", "CJR");
+        sParamsBuilder.addParam("platform", "CJR");
+        builder.addInterceptor(sParamsBuilder.build());
         mRetrofit = new Retrofit.Builder().baseUrl(url)
                 .client(builder.build())
                 .addConverterFactory(GsonConverterFactory.create())

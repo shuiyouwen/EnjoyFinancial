@@ -12,6 +12,11 @@ import com.example.shui.enjoyfinancial.base.BaseActivity;
 import com.example.shui.enjoyfinancial.feature.category.CategoryFragment;
 import com.example.shui.enjoyfinancial.feature.home.HomeFragment;
 import com.example.shui.enjoyfinancial.feature.mine.MineFragment;
+import com.example.shui.enjoyfinancial.network.ResultSubject;
+import com.example.shui.enjoyfinancial.network.RetrofitClient;
+import com.example.shui.enjoyfinancial.network.bean.resp.AppVersionResp;
+import com.example.shui.enjoyfinancial.network.helper.RxResultHelper;
+import com.example.shui.enjoyfinancial.network.helper.RxSchedulersHelper;
 import com.example.shui.enjoyfinancial.utils.StatusBarUtil;
 
 import java.util.ArrayList;
@@ -74,6 +79,16 @@ public class MainActivity extends BaseActivity {
 
     private void checkVersion() {
         // TODO: 2017/9/6 检查更新版本
+        RetrofitClient.getApi().appVersion("A")
+                .compose(RxSchedulersHelper.ioMain())
+                .compose(this.bindToLifecycle())
+                .compose(RxResultHelper.handleResult())
+                .subscribe(new ResultSubject<AppVersionResp>(this) {
+                    @Override
+                    public void onNext(AppVersionResp response) {
+
+                    }
+                });
     }
 
     /**
