@@ -37,7 +37,9 @@ public class RetrofitClient {
         }
         sParamsBuilder = new BasicParamsInterceptor.Builder();
         sParamsBuilder.addQueryParam("platform", "CJR");
+        sParamsBuilder.addQueryParam("device", "A");
         sParamsBuilder.addParam("platform", "CJR");
+        sParamsBuilder.addParam("device", "A");
         builder.addInterceptor(sParamsBuilder.build());
         mRetrofit = new Retrofit.Builder().baseUrl(url)
                 .client(builder.build())

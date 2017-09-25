@@ -9,6 +9,8 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -34,9 +36,9 @@ import io.reactivex.subjects.BehaviorSubject;
  */
 
 public class BaseFragment extends Fragment implements LifecycleProvider<FragmentEvent>, IBaseView {
-    //    @Nullable
-//    @BindView(R.id.swipe_refresh_layout)
-//    protected SwipeRefreshLayout mSwipeRefreshLayout;
+    @Nullable
+    @BindView(R.id.swipe_refresh_layout)
+    protected SwipeRefreshLayout mSwipeRefreshLayout;
     @Nullable
     @BindView(R.id.fl_title_container)
     FrameLayout mFlTitleContainer;
@@ -162,9 +164,9 @@ public class BaseFragment extends Fragment implements LifecycleProvider<Fragment
         if (mTvTitle != null && pageTitleRes != 0) {
             mTvTitle.setText(pageTitleRes);
         }
-//        if (mSwipeRefreshLayout != null) {
-//            mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(mActivity, R.color.orange_f5));
-//        }
+        if (mSwipeRefreshLayout != null) {
+            mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(mActivity, R.color.orange_cf));
+        }
     }
 
     private void initStateBar() {
@@ -177,7 +179,7 @@ public class BaseFragment extends Fragment implements LifecycleProvider<Fragment
     public void openLoading() {
         if (getActivity() == null) return;
         //若是下拉刷新，则无需弹出阻塞进度提示
-//        if (mSwipeRefreshLayout != null && mSwipeRefreshLayout.isRefreshing()) return;
+        if (mSwipeRefreshLayout != null && mSwipeRefreshLayout.isRefreshing()) return;
 
         if (mKProgressHUD == null) {
             mKProgressHUD = KProgressHUD.create(getActivity())
@@ -198,9 +200,9 @@ public class BaseFragment extends Fragment implements LifecycleProvider<Fragment
             mKProgressHUD.dismiss();
         }
 
-//        if (mSwipeRefreshLayout != null && mSwipeRefreshLayout.isRefreshing()) {
-//            mSwipeRefreshLayout.setRefreshing(false);
-//        }
+        if (mSwipeRefreshLayout != null && mSwipeRefreshLayout.isRefreshing()) {
+            mSwipeRefreshLayout.setRefreshing(false);
+        }
     }
 
     @Override

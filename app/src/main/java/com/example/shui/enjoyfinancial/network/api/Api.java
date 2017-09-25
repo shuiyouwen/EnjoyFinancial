@@ -3,6 +3,7 @@ package com.example.shui.enjoyfinancial.network.api;
 import com.example.shui.enjoyfinancial.network.bean.ResultModel;
 import com.example.shui.enjoyfinancial.network.bean.resp.AdResp;
 import com.example.shui.enjoyfinancial.network.bean.resp.AppVersionResp;
+import com.example.shui.enjoyfinancial.network.bean.resp.RecommendResp;
 
 import java.util.List;
 
@@ -16,18 +17,15 @@ import retrofit2.http.Query;
  */
 
 public interface Api {
-    /**
-     * 获取banner
-     *
-     * @return
-     */
+    //获取广告图片
     @GET("api/v1/Index/ad_list")
     Observable<ResultModel<List<AdResp>>> adList(@Query("type") String type);
 
+    //检查版本更新
     @GET("api/v1/Index/app_ver")
-    Observable<ResultModel<AppVersionResp>> appVersion(@Query("device") String device);
+    Observable<ResultModel<AppVersionResp>> appVersion();
 
-    @GET("api/v1/Index/recommend")
-    Observable<ResultModel<Object>> recommend(@Query("platform") String platform,
-                                                       @Query("device") String device);
+    //首页推荐商品
+    @GET("api/v1/Commodity/recommend")
+    Observable<ResultModel<List<RecommendResp>>> recommend();
 }

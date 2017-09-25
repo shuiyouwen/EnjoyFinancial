@@ -3,6 +3,8 @@ package com.example.shui.enjoyfinancial.feature.home;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,6 +18,7 @@ import com.example.shui.enjoyfinancial.base.BaseFragment;
 import com.example.shui.enjoyfinancial.network.ResultSubject;
 import com.example.shui.enjoyfinancial.network.RetrofitClient;
 import com.example.shui.enjoyfinancial.network.bean.resp.AdResp;
+import com.example.shui.enjoyfinancial.network.bean.resp.RecommendResp;
 import com.example.shui.enjoyfinancial.network.helper.RxResultHelper;
 import com.example.shui.enjoyfinancial.network.helper.RxSchedulersHelper;
 import com.example.shui.enjoyfinancial.utils.Utils;
@@ -34,6 +37,8 @@ import butterknife.Unbinder;
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
 
+import static com.example.shui.enjoyfinancial.utils.Utils.formatAmt;
+import static com.example.shui.enjoyfinancial.utils.Utils.loadImage;
 import static com.example.shui.enjoyfinancial.utils.Utils.setPrice;
 import static com.example.shui.enjoyfinancial.utils.Utils.strikethroughTextView;
 
@@ -55,8 +60,8 @@ public class HomeFragment extends BaseFragment {
     TextView mTvProduct1;
     @BindView(R.id.tv_original_price1)
     TextView mTvOriginalPrice1;
-    @BindView(R.id.tv_price)
-    TextView mTvPrice;
+    @BindView(R.id.tv_price1)
+    TextView mTvPrice1;
     @BindView(R.id.tv_preferential_price1)
     TextView mTvPreferentialPrice1;
     @BindView(R.id.tv_cxf1)
@@ -91,6 +96,8 @@ public class HomeFragment extends BaseFragment {
     TextView mTvPrice4;
     @BindView(R.id.tv_month_price4)
     TextView mTvMonthPrice4;
+    @BindView(R.id.tv_month_price1)
+    TextView mTvMonthPrice1;
     Unbinder unbinder;
     @BindView(R.id.magic_indicator_banner)
     MagicIndicator mMagicIndicatorBanner;
@@ -116,18 +123,79 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void initView() {
-        strikethroughTextView(mTvOriginalPrice1);
-        strikethroughTextView(mTvOriginalPrice2);
-        strikethroughTextView(mTvOriginalPrice3);
-        strikethroughTextView(mTvOriginalPrice4);
-
-        setPrice("5899", mTvPrice, 12, R.color.font_gray_6b);
-        mTvOriginalPrice2.setVisibility(View.GONE);
-        setPrice("1999", mTvPrice2, 10, 0);
-        setPrice("1999", mTvPrice3, 10, 0);
-        setPrice("1999", mTvPrice4, 10, 0);
-
         initBanner();
+        initCarAd();
+        initProduct();
+        assert mSwipeRefreshLayout != null;
+        mSwipeRefreshLayout.setOnRefreshListener(this::initView);
+    }
+
+    /**
+     * 初始化车险广告
+     */
+    private void initCarAd() {
+        RetrofitClient.getApi().adList("CAR-INS")
+                .compose(RxSchedulersHelper.ioMain())
+                .compose(this.bindToLifecycle())
+                .compose(RxResultHelper.handleResult())
+                .subscribe(new ResultSubject<List<AdResp>>(this) {
+                    @Override
+                    public void onNext(List<AdResp> response) {
+                        Utils.loadImage(response.get(0).getImg_url(), mIvBannerBottom, 0, 0);
+                    }
+                });
+    }
+
+    private void initProduct() {
+        RetrofitClient.getApi().recommend()
+                .compose(RxSchedulersHelper.ioMain())
+                .compose(this.bindToLifecycle())
+                .compose(RxResultHelper.handleResult())
+                .subscribe(new ResultSubject<List<RecommendResp>>(this) {
+                    @Override
+                    public void onNext(List<RecommendResp> response) {
+                        renderProduct(response);
+                    }
+                });
+    }
+
+    /**
+     * 渲染推荐产品信息
+     *
+     * @param response
+     */
+    private void renderProduct(List<RecommendResp> response) {
+        for (int i = 0; i < response.size(); i++) {
+            RecommendResp recommendResp = response.get(i);
+            try {
+                int position = i + 1;
+                ImageView ivProduct = (ImageView) getClass().getField("mIvProduct" + position).get(this);
+                loadImage(recommendResp.getImg_url(), ivProduct, 0, 0);
+
+                TextView tvProduct = (TextView) getClass().getField("mTvProduct" + position).get(this);
+                tvProduct.setText(recommendResp.getTitle());
+
+                int fontSize = i == 0 ? 12 : 10;
+                int colorRes = i == 0 ? R.color.font_gray_6b : 0;
+                TextView tvPrice = (TextView) getClass().getField("mTvPrice" + position).get(this);
+                setPrice(formatAmt(recommendResp.getPreferent_min()), tvPrice, fontSize, colorRes);
+
+                TextView tvOriginalPrice = (TextView) getClass().getField("mTvOriginalPrice" + position).get(this);
+                strikethroughTextView(tvOriginalPrice);
+                if (!TextUtils.isEmpty(recommendResp.getPrice_min())) {
+                    tvOriginalPrice.setText(String.format("￥%s", formatAmt(recommendResp.getPrice_min())));
+                }
+
+                TextView tvMonthPrice = (TextView) getClass().getField("mTvMonthPrice" + position).get(this);
+                String monthPrice = recommendResp.isSupportStages() ?
+                        String.format("￥%s/月 起", formatAmt(recommendResp.getMonthly_min())) : "暂不支持";
+                tvMonthPrice.setText(monthPrice);
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void initBanner() {

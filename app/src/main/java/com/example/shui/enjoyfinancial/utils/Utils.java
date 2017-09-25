@@ -11,9 +11,6 @@ import android.text.SpannableStringBuilder;
 import android.text.TextPaint;
 import android.text.style.AbsoluteSizeSpan;
 import android.text.style.ForegroundColorSpan;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +18,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.shui.enjoyfinancial.App;
-import com.example.shui.enjoyfinancial.R;
 
 /**
  * 工具类
@@ -109,5 +105,14 @@ public class Utils {
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .dontAnimate()
                 .into(imageView);
+    }
+
+    /**
+     * 格式化金额，不保留小数
+     */
+    public static String formatAmt(String amt) {
+        double d = Double.parseDouble(amt);
+        String amtStr = (int) d + "";
+        return amtStr;
     }
 }

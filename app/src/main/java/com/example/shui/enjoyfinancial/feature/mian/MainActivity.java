@@ -79,7 +79,7 @@ public class MainActivity extends BaseActivity {
 
     private void checkVersion() {
         // TODO: 2017/9/6 检查更新版本
-        RetrofitClient.getApi().appVersion("A")
+        RetrofitClient.getApi().appVersion()
                 .compose(RxSchedulersHelper.ioMain())
                 .compose(this.bindToLifecycle())
                 .compose(RxResultHelper.handleResult())
