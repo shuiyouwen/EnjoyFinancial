@@ -11,4 +11,6 @@ public interface TagConstants {
     String ENTERING_SUBORDINATE_SUCCESS = "ENTERING_SUBORDINATE_SUCCESS";
     String ENTERING_CUSTOMER_SUCCESS = "entering_customer_success";
     String LOGIN_SUCCESS = "LOGIN_SUCCESS";
+    //切换分类
+    String CATEGORY_CHECK = "category_check";
 }
